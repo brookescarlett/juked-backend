@@ -11,22 +11,6 @@ var accountSid = secrets.accountSid
 var authToken = secrets.authToken
 var redirect_uri = 'http://localhost:8888/callback'
 
-
-// const ngrok = require('ngrok')
-// var client = require('twilio')(accountSid, authToken)
-// client.messages.create({
-//   to: '+19175362656',
-//   body: 'is this working?'
-// })
-// .then((message) => console.log(message.sid))
-//
-// client.messages('testing123')
-// .update({body:''})
-// .then(message => process.stdout.write(message.body))
-
-
-
-
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -115,7 +99,7 @@ app.get('/callback', function(req, res) {
         });
 
         // we can also pass the token to the browser to make requests from there
-        res.redirect('http://localhost:3000/#' +
+        res.redirect('https://juked-web.herokuapp.com/#' +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token

@@ -9,7 +9,7 @@ var client_id = secrets.CLIENT_ID
 var client_secret = secrets.CLIENT_SECRET
 var accountSid = secrets.accountSid
 var authToken = secrets.authToken
-var redirect_uri = 'https://juked-web.herokuapp.com/callback'
+var redirect_uri = 'https://evening-cove-15913.herokuapp.com/callback'
 
 const path = require('path');
 const PORT = process.env.PORT || 5000

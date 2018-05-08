@@ -9,7 +9,12 @@ var client_id = secrets.CLIENT_ID
 var client_secret = secrets.CLIENT_SECRET
 var accountSid = secrets.accountSid
 var authToken = secrets.authToken
-var redirect_uri = 'http://localhost:8888/callback'
+var redirect_uri = 'https://juked-web.herokuapp.com/callback'
+
+const path = require('path');
+const PORT = process.env.PORT || 5000
+const BUILD = path.join(__dirname, './build');
+
 
 /**
  * Generates a random string containing numbers and letters
@@ -32,7 +37,7 @@ var stateKey = 'spotify_auth_state';
 var app = express();
 // app.use(cors())
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(BUILD))
    .use(cookieParser());
 
 app.get('/login', function(req, res) {
@@ -138,5 +143,5 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-console.log('Listening on 8888');
-app.listen(8888);
+// console.log('Listening on 8888');
+app.listen(PORT);
